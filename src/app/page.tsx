@@ -47,111 +47,110 @@ export default function Home() {
   ];
 
   return (
-    <section className="grid gap-10 md:gap-16 items-start md:grid-cols-[1.2fr_1fr]">
-      {/* LEFT */}
-      <div className="space-y-6">
-        {/* Heading & Subtitle */}
-        <div className="space-y-3">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
-            Hey, I’m Tanvir!
-          </h1>
-          <h2 className="text-base sm:text-lg md:text-xl text-white/80 -mt-1 sm:-mt-2">
-            Computer Engineering Student at McMaster University
-          </h2>
-        </div>
-
-        {/* Contact Pills */}
-        <div className="flex flex-wrap md:flex-nowrap md:whitespace-nowrap items-center gap-2 pt-4 w-full">
-          <a
-            href="tel:+16475426310"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 sm:px-4 text-sm hover:bg-white/10 transition"
-            aria-label="Call 647-542-6310"
-          >
-            <FaPhone className="opacity-90 group-hover:opacity-100" />
-            <span className="underline underline-offset-4">647-542-6310</span>
-          </a>
-
-          <a
-            href="mailto:tanvirsingh6803@gmail.com"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 sm:px-4 text-sm hover:bg-white/10 transition min-w-0"
-            aria-label="Email tanvirsingh6803@gmail.com"
-          >
-            <FaEnvelope className="opacity-90 group-hover:opacity-100" />
-            <span className="underline underline-offset-4 truncate max-w-[68vw] sm:max-w-[38ch] md:max-w-[32ch]">
-              tanvirsingh6803@gmail.com
-            </span>
-          </a>
-
-          <a
-            href="https://linkedin.com/in/singht52"
-            target="_blank"
-            rel="noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 sm:px-4 text-sm hover:bg-white/10 transition"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedin className="opacity-90 group-hover:opacity-100" />
-            <span className="underline underline-offset-4">LinkedIn</span>
-          </a>
-
-          <a
-            href="https://github.com/Tanvir6803"
-            target="_blank"
-            rel="noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 sm:px-4 text-sm hover:bg-white/10 transition"
-            aria-label="GitHub"
-          >
-            <FaGithub className="opacity-90 group-hover:opacity-100" />
-            <span className="underline underline-offset-4">GitHub</span>
-          </a>
-        </div>
-
-        {/* About Me */}
-        <div className="pt-8">
-          <div className="flex items-center gap-2">
-            <h3 className="text-xl sm:text-2xl font-bold">About Me</h3>
-            <UserIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white/80" />
+    <section className="py-2 pb-10">
+      <div className="grid gap-10 md:gap-16 items-start md:grid-cols-[1.2fr_1fr]">
+        <div className="space-y-6">
+          <div className="space-y-3">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
+              Hey, I’m Tanvir!
+            </h1>
+            <h2 className="text-base sm:text-lg md:text-xl text-white/80 -mt-1 sm:-mt-2">
+              Computer Engineering Student at McMaster University
+            </h2>
           </div>
-          <p className="mt-2 max-w-prose text-base sm:text-lg opacity-90">
-            I am in my final year as a Computer Engineering student specializing in software,
-            hardware, and embedded systems. My software experience includes full-stack development
-            with React, Next.js, Tailwind CSS, TypeScript, Node.js, and PostgreSQL, and programming
-            in Python, Java, JavaScript, C#, C/C++, and SQL. I also have experience with
-            microcontrollers, PLCs, Verilog HDL, and hardware integration to deliver embedded
-            solutions. Please view my skills below as well as my work/club experience and projects
-            to see more!
-          </p>
-        </div>
 
-        {/* Skills */}
-        <div className="pt-5">
-          <h3 className="text-xl sm:text-2xl font-semibold">Technologies / Skills</h3>
-          <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-2.5">
-            {techs.map((t) => (
-              <div
-                key={t.name}
-                className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 sm:px-3 sm:py-2 hover:bg-white/[0.06] transition"
-                title={t.name}
-              >
-                <span className="text-lg sm:text-xl" style={{ color: t.color }}>
-                  {t.icon}
-                </span>
-                <span className="text-[13px] sm:text-sm">{t.name}</span>
-              </div>
-            ))}
+          {/* Contact Info*/}
+          <div className="flex flex-wrap md:flex-nowrap md:whitespace-nowrap items-center gap-2 pt-4 w-full">
+            <a
+              href="tel:+16475426310"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 sm:px-4 text-sm hover:bg-white/10 transition"
+              aria-label="Call 647-542-6310"
+            >
+              <FaPhone className="opacity-90 group-hover:opacity-100" />
+              <span className="underline underline-offset-4">647-542-6310</span>
+            </a>
+
+            <a
+              href="mailto:tanvirsingh6803@gmail.com"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 sm:px-4 text-sm hover:bg-white/10 transition min-w-0"
+              aria-label="Email tanvirsingh6803@gmail.com"
+            >
+              <FaEnvelope className="opacity-90 group-hover:opacity-100" />
+              <span className="underline underline-offset-4 truncate max-w-[68vw] sm:max-w-[38ch] md:max-w-[32ch]">
+                tanvirsingh6803@gmail.com
+              </span>
+            </a>
+
+            <a
+              href="https://linkedin.com/in/singht52"
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 sm:px-4 text-sm hover:bg-white/10 transition"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin className="opacity-90 group-hover:opacity-100" />
+              <span className="underline underline-offset-4">LinkedIn</span>
+            </a>
+
+            <a
+              href="https://github.com/Tanvir6803"
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 sm:px-4 text-sm hover:bg-white/10 transition"
+              aria-label="GitHub"
+            >
+              <FaGithub className="opacity-90 group-hover:opacity-100" />
+              <span className="underline underline-offset-4">GitHub</span>
+            </a>
+          </div>
+
+          {/* About Me */}
+          <div className="pt-8">
+            <div className="flex items-center gap-2">
+              <h3 className="text-xl sm:text-2xl font-bold">About Me</h3>
+              <UserIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white/80" />
+            </div>
+            <p className="mt-2 max-w-prose text-base sm:text-lg opacity-90">
+              I am in my final year as a Computer Engineering student specializing in software,
+              hardware, and embedded systems. My software experience includes full-stack development
+              with React, Next.js, Tailwind CSS, TypeScript, Node.js, and PostgreSQL, and programming
+              in Python, Java, JavaScript, C#, C/C++, and SQL. I also have experience with
+              microcontrollers, PLCs, Verilog HDL, and hardware integration to deliver embedded
+              solutions. Please view my skills below as well as my work/club experience and projects
+              to see more!
+            </p>
+          </div>
+
+          {/* Skills */}
+          <div className="pt-5">
+            <h3 className="text-xl sm:text-2xl font-semibold">Technologies / Skills</h3>
+            <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-2.5">
+              {techs.map((t) => (
+                <div
+                  key={t.name}
+                  className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 sm:px-3 sm:py-2 hover:bg-white/[0.06] transition"
+                  title={t.name}
+                >
+                  <span className="text-lg sm:text-xl" style={{ color: t.color }}>
+                    {t.icon}
+                  </span>
+                  <span className="text-[13px] sm:text-sm">{t.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* RIGHT */}
-      <div className="flex justify-center md:justify-end self-start">
-        <div className="relative h-40 w-40 sm:h-52 sm:w-52 md:h-72 md:w-72 rounded-2xl overflow-hidden ring-1 ring-white/15">
-          <Image
-            src="/TanvirPicture.jpg"
-            alt="Tanvir Singh"
-            fill
-            priority
-            className="object-cover"
-          />
+        <div className="flex justify-center md:justify-end self-start">
+          <div className="relative h-40 w-40 sm:h-52 sm:w-52 md:h-72 md:w-72 rounded-2xl overflow-hidden ring-1 ring-white/15">
+            <Image
+              src="/TanvirPicture.jpg"
+              alt="Tanvir Singh"
+              fill
+              priority
+              className="object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>

@@ -9,7 +9,7 @@ export default function ResumePage() {
   const src = `${pdfPath}${viewerParams}`;
 
   return (
-    <section className="py-2">
+    <section className="py-2 pb-10">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <h1 className="text-3xl sm:text-4xl font-extrabold">Resume</h1>
 
@@ -38,11 +38,7 @@ export default function ResumePage() {
 
       {/* PDF */}
       <div className="mt-6 rounded-xl overflow-hidden ring-1 ring-white/10 bg-black/20">
-        <object
-          data={src}
-          type="application/pdf"
-          className="w-full h-screen"
-        >
+        <object data={src} type="application/pdf" className="w-full h-screen">
           <iframe
             src={src}
             className="w-full h-[85vh] sm:h-[90vh] border-0"
