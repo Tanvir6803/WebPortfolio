@@ -47,14 +47,14 @@ export default function Home() {
   ];
 
   return (
-    <section className="py-2 pb-10">
+    <section className="py-2 pb-14">
       <div className="grid gap-10 md:gap-16 items-start md:grid-cols-[1.2fr_1fr]">
-        <div className="space-y-6">
+        <div className="space-y-6 md:space-y-8">
           <div className="space-y-3">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-none mb-0">
               Hey, I’m Tanvir!
             </h1>
-            <h2 className="text-base sm:text-lg md:text-xl text-white/80 -mt-1 sm:-mt-2">
+            <h2 className="text-base sm:text-lg md:text-xl text-white/80 mt-1 md:mt-4 leading-snug">
               Computer Engineering Student at McMaster University
             </h2>
           </div>
@@ -128,7 +128,7 @@ export default function Home() {
               {techs.map((t) => (
                 <div
                   key={t.name}
-                  className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.03] px-2.5 py-1.5 sm:px-3 sm:py-2 hover:bg-white/[0.06] transition"
+                  className="flex items-center gap-1.5 rounded-xl ring-1 ring-white/10 bg-white/[0.03] px-2.5 py-1.5 sm:px-3 sm:py-2 hover:bg-white/[0.06] transition"
                   title={t.name}
                 >
                   <span className="text-lg sm:text-xl" style={{ color: t.color }}>

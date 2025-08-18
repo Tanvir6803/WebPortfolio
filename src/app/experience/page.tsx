@@ -61,7 +61,7 @@ export default function ExperiencePage() {
             <span className="text-sm text-white/70">May 2024 – Aug 2025</span>
           </header>
 
-          <div className="mt-1 text-sm text-white/70">Markham, ON</div>
+          <div className="mt-1 text-sm text-white/70">Markham, Ontario, Canada</div>
 
           <ul className="mt-3 list-disc pl-5 space-y-1.5 text-white/90">
             <li>
@@ -94,7 +94,7 @@ export default function ExperiencePage() {
             <span className="text-sm text-white/70">May 2023 – Aug 2023</span>
           </header>
 
-          <div className="mt-1 text-sm text-white/70">Mississauga, ON</div>
+          <div className="mt-1 text-sm text-white/70">Mississauga, Ontario, Canada</div>
 
           <ul className="mt-3 list-disc pl-5 space-y-1.5 text-white/90">
             <li>
@@ -125,7 +125,7 @@ export default function ExperiencePage() {
             <span className="text-sm text-white/70">Jan 2025 – Present</span>
           </header>
 
-          <div className="mt-1 text-sm text-white/70">Hamilton, ON</div>
+          <div className="mt-1 text-sm text-white/70">Hamilton, Ontario, Canada</div>
 
           <ul className="mt-3 list-disc pl-5 space-y-1.5 text-white/90">
             <li>
@@ -145,7 +145,7 @@ export default function ExperiencePage() {
           </ul>
         </article>
 
-        {/* Drone pics (click to enlarge) */}
+        {/* Drone pics*/}
         <section aria-labelledby="drone-photos">
           <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Image 1 */}
