@@ -43,9 +43,9 @@ const projects: Project[] = [
 
       return (
         <div className="mt-5 space-y-6 text-white/90">
-          {/* (1) Device Overview) */}
+          {/* 1. Device Overview) */}
           <section>
-            <h3 className="text-lg font-semibold">(1) Device Overview</h3>
+            <h3 className="text-lg font-semibold">1. Device Overview</h3>
 
             <h4 className="mt-3 text-base font-semibold">(a) Features</h4>
             <ul className="mt-2 list-disc pl-5 space-y-1.5">
@@ -91,10 +91,10 @@ const projects: Project[] = [
             </div>
           </section>
 
-          {/* (2) Detailed Description */}
+          {/* 2. Detailed Description */}
           <section>
-            <h3 className="text-lg font-semibold">(2) Detailed Description</h3>
-            <h4 className="mt-3 text-base font-semibold">(a) Distance Measurement)</h4>
+            <h3 className="text-lg font-semibold">2. Detailed Description</h3>
+            <h4 className="mt-3 text-base font-semibold">(a) Distance Measurement</h4>
             <ul className="mt-2 list-disc pl-5 space-y-1.5">
               <li>ToF sensor: <strong>3415-POLOLU VL53L1X</strong>; one emitter + one receiver measure time-of-flight → distance.</li>
               <li>Wiring: <strong>VIN</strong>=3.3&nbsp;V, <strong>GND</strong>=0&nbsp;V; <strong>SDA/SCL → PB2/PB3</strong> for I²C; vendor API used for setup, ranging, and data access.</li>
@@ -106,9 +106,9 @@ const projects: Project[] = [
             </ul>
           </section>
 
-          {/* (3) Circuit schematic */}
+          {/* 3. Circuit schematic */}
           <section>
-            <h3 className="text-lg font-semibold">(3) Circuit Schematic</h3>
+            <h3 className="text-lg font-semibold">3. Circuit Schematic</h3>
             <div className="mt-3 flex justify-center">
               <div className="w-full max-w-[720px]">
                 <figure
@@ -124,9 +124,9 @@ const projects: Project[] = [
             </div>
           </section>
 
-          {/* (4) Programming logic flowcharts */}
+          {/* 4. Programming logic flowcharts */}
           <section>
-            <h3 className="text-lg font-semibold">(4) Programming Logic Flowcharts</h3>
+            <h3 className="text-lg font-semibold">4. Programming Logic Flowcharts</h3>
             <div className="mt-3 grid gap-3 md:grid-cols-2">
               {flows.map((img, idx) => (
                 <div key={img.src}>
@@ -179,7 +179,7 @@ const projects: Project[] = [
             <h3 className="text-lg font-semibold">1. Introduction</h3>
             <ul className="mt-2 list-disc pl-5 space-y-1.5">
               <li>Implemented <strong>McMaster Image Compression Rev. 17</strong> on an<strong> Altera DE2</strong> for <strong>320×240</strong> images.</li>
-              <li>Pipeline: <strong>RGB→YUV</strong>, <strong>DCT</strong>, <strong>quantization</strong>, <strong>SRAM</strong>, <strong>UART</strong>, <strong>VGA</strong>, FSM-based control.</li>
+              <li>Pipeline: <strong>RGB → YUV</strong>, <strong>DCT</strong>, <strong>quantization</strong>, <strong>SRAM</strong>, <strong>UART</strong>, <strong>VGA</strong>, FSM-based control.</li>
             </ul>
           </section>
 
@@ -187,7 +187,7 @@ const projects: Project[] = [
             <h3 className="text-lg font-semibold">2. Implementation Details</h3>
 
             <div className="mt-3">
-              <h4 className="text-base font-semibold">2.1 Upsampling and Colour Space Conversion</h4>
+              <h4 className="text-base font-semibold">(a) Upsampling and Colour Space Conversion</h4>
 
               <div className="mt-3 grid gap-3 md:grid-cols-2">
                 {detailImages.map((img, idx) => (
@@ -208,14 +208,14 @@ const projects: Project[] = [
               <ul className="mt-3 list-disc pl-5 space-y-1.5">
                 <li><strong>Timing:</strong> common-case loop = <strong>12 cycles</strong> per half; <strong>240 rows</strong>.</li>
                 <li><strong>Multiplier roles:</strong> M1/M2 for U,V interpolation; M3/M4 for colour conversion.</li>
-                <li><strong>Accumulators:</strong> RGB↔YUV matrix multiply.</li>
+                <li><strong>Accumulators:</strong> RGB ↔ YUV matrix multiply.</li>
                 <li><strong>Throughput:</strong> ~<strong>978 cycles/row</strong>, <strong>234,963 total</strong>.</li>
                 <li><strong>Utilization:</strong> ~<strong>85%</strong> multipliers.</li>
               </ul>
             </div>
 
             <div className="mt-5">
-              <h4 className="text-base font-semibold">2.2 Resource Usage and Critical Path</h4>
+              <h4 className="text-base font-semibold">(b) Resource Usage and Critical Path</h4>
               <ul className="mt-2 list-disc pl-5 space-y-1.5">
                 <li><strong>Resources:</strong> <strong>2,435 / 114,480</strong> LEs (~<strong>2%</strong>).</li>
                 <li><strong>Optimization:</strong> centralize constants/operands; drive repeats from control.</li>
@@ -225,7 +225,7 @@ const projects: Project[] = [
           </section>
 
           <section>
-            <h3 className="text-lg font-semibold">Conclusion</h3>
+            <h3 className="text-lg font-semibold">3. Conclusion</h3>
             <ul className="mt-2 list-disc pl-5 space-y-1.5">
               <li>4-week build combining <strong>FSM</strong>, <strong>VGA/SRAM/UART</strong>, and DSP blocks.</li>
               <li>Emphasis on <strong>task division</strong>, <strong>communication</strong>, <strong>systematic debugging</strong>.</li>
