@@ -51,15 +51,29 @@ export default function Home() {
       <div className="grid gap-10 md:gap-16 items-start md:grid-cols-[1.2fr_1fr]">
         <div className="space-y-6 md:space-y-8">
           <div className="space-y-3">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-none mb-0">
-              Hey, I’m Tanvir!
-            </h1>
+
+            <div className="flex items-center justify-between md:block">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-none mb-0">
+                Hey, I’m Tanvir!
+              </h1>
+              {/* Mobile smaller image */}
+              <div className="relative h-20 w-20 sm:h-24 sm:w-24 md:hidden rounded-full overflow-hidden ring-1 ring-white/15">
+                <Image
+                  src="/TanvirPicture.jpg"
+                  alt="Tanvir Singh"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
             <h2 className="text-base sm:text-lg md:text-xl text-white/80 mt-1 md:mt-4 leading-snug">
               Computer Engineering Student at McMaster University
             </h2>
           </div>
 
-          {/* Contact Info*/}
+          {/* Contact info*/}
           <div className="flex flex-wrap md:flex-nowrap md:whitespace-nowrap items-center gap-2 pt-4 w-full">
             <a
               href="tel:+16475426310"
@@ -104,7 +118,7 @@ export default function Home() {
             </a>
           </div>
 
-          {/* About Me */}
+          {/* About me */}
           <div className="pt-8">
             <div className="flex items-center gap-2">
               <h3 className="text-xl sm:text-2xl font-bold">About Me</h3>
@@ -141,7 +155,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex justify-center md:justify-end self-start">
+        {/* Deskstop larger image */}
+        <div className="hidden md:flex justify-center md:justify-end self-start">
           <div className="relative h-40 w-40 sm:h-52 sm:w-52 md:h-72 md:w-72 rounded-2xl overflow-hidden ring-1 ring-white/15">
             <Image
               src="/TanvirPicture.jpg"

@@ -3,11 +3,7 @@
 import React from "react";
 import Image from "next/image";
 
-type ProjectImage = {
-  src: string;
-  alt: string;
-};
-
+type ProjectImage = { src: string; alt: string };
 type DetailsRenderer = (
   openLightbox: (images: ProjectImage[], index: number) => void
 ) => React.ReactNode;
@@ -23,11 +19,12 @@ type Project = {
 
 const projects: Project[] = [
   {
+    //* Lidar Project *//
     title: "3D LiDAR Scanner",
     subtitle: "Custom ToF + stepper platform • C/C++ · Python",
     images: [
-      { src: "/Lidar1.jpg", alt: "Custom 360° LiDAR device hardware" },
-      { src: "/Lidar2.jpg", alt: "LiDAR scan visualization lines plot" },
+      { src: "/Lidar1.jpg", alt: "Custom 360° LiDAR device setup" },
+      { src: "/Lidar2.jpg", alt: "Example LiDAR scan output" },
     ],
     body:
       "Built a 360° LiDAR device using a VL53L1X ToF sensor and 28BYJ-48 stepper motor. " +
@@ -35,20 +32,18 @@ const projects: Project[] = [
       "Processed scans and rendered 2D/3D views in Python to visualize room geometry and obstacles.",
     details: (openLightbox) => {
       const blockAndTable: ProjectImage[] = [
-        { src: "/ExtraLidar1.jpg", alt: "LiDAR system block / data flow diagram" },
-        { src: "/ExtraLidar2.jpg", alt: "Device characteristics table" },
+        { src: "/ExtraLidar1.jpg", alt: "Figure 1 — LiDAR system block / data flow diagram" },
+        { src: "/ExtraLidar2.jpg", alt: "Figure 2 — Device characteristics table" },
       ];
-      const schematic: ProjectImage[] = [
-        { src: "/ExtraLidar3.jpg", alt: "LiDAR circuit schematic" },
-      ];
+      const schematic: ProjectImage[] = [{ src: "/ExtraLidar3.jpg", alt: "Figure 3 — LiDAR circuit schematic" }];
       const flows: ProjectImage[] = [
-        { src: "/ExtraLidar4.jpg", alt: "Programming logic flowchart 1" },
-        { src: "/ExtraLidar5.jpg", alt: "Programming logic flowchart 2" },
+        { src: "/ExtraLidar4.jpg", alt: "Figure 4 — Programming logic flowchart 1" },
+        { src: "/ExtraLidar5.jpg", alt: "Figure 5 — Programming logic flowchart 2" },
       ];
 
       return (
         <div className="mt-5 space-y-6 text-white/90">
-          {/* (1) Device Overview */}
+          {/* (1) Device Overview) */}
           <section>
             <h3 className="text-lg font-semibold">(1) Device Overview</h3>
 
@@ -58,14 +53,13 @@ const projects: Project[] = [
               <li>Main capability: scans a 3D area to output a <strong>spatial reconstruction</strong>.</li>
               <li>One push button (breadboard) to start/finish; on-board MCU button to reset.</li>
               <li>
-                ToF sensor <strong>VL53L1X</strong>, full <strong>360°</strong> with <strong>16</strong> measurements per revolution;
-                range up to <strong>400&nbsp;cm</strong>, up to <strong>50&nbsp;Hz</strong>; <strong>I²C</strong> + <strong>UART</strong>.
+                ToF sensor <strong>VL53L1X</strong>, full <strong>360°</strong> with <strong>16</strong> measurements per
+                revolution; range up to <strong>400&nbsp;cm</strong>, up to <strong>50&nbsp;Hz</strong>; <strong>I²C</strong> + <strong>UART</strong>.
               </li>
               <li>Generates navigable 3D models (Python/Open3D).</li>
               <li>Open source: firmware in <strong>C/C++ (Keil)</strong>, host in <strong>Python (Jupyter)</strong>.</li>
               <li>
-                MCU: <strong>MSP432E401Y</strong> @ <strong>80&nbsp;MHz</strong> (from 120&nbsp;MHz); <strong>3–5&nbsp;V</strong>;
-                <strong> 1024&nbsp;KB Flash</strong>, <strong>256&nbsp;KB SRAM</strong>; UART ~<strong>7.5&nbsp;Mbps</strong>.
+                MCU: <strong>MSP432E401Y</strong> @ <strong>80&nbsp;MHz</strong> (from 120&nbsp;MHz); <strong>3–5&nbsp;V</strong>; <strong>1024&nbsp;KB Flash</strong>, <strong>256&nbsp;KB SRAM</strong>; UART ~<strong>7.5&nbsp;Mbps</strong>.
               </li>
               <li>Approx. system cost (without MCU): <strong>$60 CAD</strong>.</li>
             </ul>
@@ -74,70 +68,41 @@ const projects: Project[] = [
             <ul className="mt-2 list-disc pl-5 space-y-1.5">
               <li>Integrated embedded system: ToF sensor provides distances; stepper performs 360° sweep; Python renders 3D model.</li>
               <li>Digital I/O: push-button start, LED activity, measurement logging; coordinates derived (YZ/XYZ) from ToF.</li>
-              <li>Data path: transduction → conditioning/ADC → MCU → <strong>UART (byte-wise)</strong> to PC → Python/Open3D visualisation; host runs in polling mode and records to file.</li>
+              <li>
+                Data path: transduction → conditioning/ADC → MCU → <strong>UART (byte-wise)</strong> to PC → Python/Open3D visualisation; host runs in polling mode and records to file.
+              </li>
             </ul>
 
             {/* Block diagram + device table */}
             <div className="mt-3 grid gap-3 md:grid-cols-2">
-              <figure
-                className="relative mx-auto max-w-[720px] w-full rounded-xl ring-1 ring-white/10 overflow-hidden bg-black/20 cursor-zoom-in"
-                onClick={() => openLightbox(blockAndTable, 0)}
-                role="button"
-                aria-label="Open LiDAR block / data flow diagram"
-              >
-                <Image
-                  src={blockAndTable[0].src}
-                  alt={blockAndTable[0].alt}
-                  width={1200}
-                  height={700}
-                  quality={100}
-                  className="object-contain w-full h-auto"
-                />
-                <figcaption className="px-3 py-2 text-xs text-white/70 text-center">
-                  Fig. — Block / Data-flow diagram
-                </figcaption>
-              </figure>
-
-              <figure
-                className="relative mx-auto max-w-[720px] w-full rounded-xl ring-1 ring-white/10 overflow-hidden bg-black/20 cursor-zoom-in"
-                onClick={() => openLightbox(blockAndTable, 1)}
-                role="button"
-                aria-label="Open device characteristics table"
-              >
-                <Image
-                  src={blockAndTable[1].src}
-                  alt={blockAndTable[1].alt}
-                  width={1200}
-                  height={600}
-                  quality={100}
-                  className="object-contain w-full h-auto"
-                />
-                <figcaption className="px-3 py-2 text-xs text-white/70 text-center">
-                  Table — Device characteristics
-                </figcaption>
-              </figure>
+              {blockAndTable.map((img, idx) => (
+                <div key={img.src}>
+                  <figure
+                    className="relative w-full h-40 sm:h-48 md:h-56 lg:h-60 overflow-hidden rounded-lg ring-1 ring-white/10 bg-black/20 cursor-zoom-in"
+                    onClick={() => openLightbox(blockAndTable, idx)}
+                    role="button"
+                    aria-label={img.alt}
+                  >
+                    <Image src={img.src} alt={img.alt} fill sizes="(max-width: 768px) 100vw, 50vw" quality={100} className="object-contain" />
+                  </figure>
+                  <div className="mt-2 px-3 text-xs text-white/70 text-center">{img.alt}</div>
+                </div>
+              ))}
             </div>
           </section>
 
           {/* (2) Detailed Description */}
           <section>
             <h3 className="text-lg font-semibold">(2) Detailed Description</h3>
-
-            <h4 className="mt-3 text-base font-semibold">(a) Distance Measurement</h4>
+            <h4 className="mt-3 text-base font-semibold">(a) Distance Measurement)</h4>
             <ul className="mt-2 list-disc pl-5 space-y-1.5">
               <li>ToF sensor: <strong>3415-POLOLU VL53L1X</strong>; one emitter + one receiver measure time-of-flight → distance.</li>
               <li>Wiring: <strong>VIN</strong>=3.3&nbsp;V, <strong>GND</strong>=0&nbsp;V; <strong>SDA/SCL → PB2/PB3</strong> for I²C; vendor API used for setup, ranging, and data access.</li>
               <li>Stepper: <strong>MOT-28BYJ48</strong>, <strong>IN1..IN4 → PH0..PH3</strong>; powered 5&nbsp;V/GND. Full-step sequence drives rotation.</li>
-              <li>Motion cadence: <strong>250&nbsp;ms</strong> per state; <strong>16</strong> samples per 360° ⇒ <strong>22.5°</strong>/sample (step = 360 / #measurements). Data sent over <strong>COM6</strong> (port varies by PC).</li>
+              <li>Motion cadence: <strong>250&nbsp;ms</strong> per state; <strong>16</strong> samples per 360° ⇒ <strong>22.5°</strong>/sample. Data sent over <strong>COM6</strong>.</li>
               <li>Host visualisation: Python <strong>Open3D</strong> builds point cloud, connects neighbours/sets, adds per-set bounding boxes; fully rotatable 3D view.</li>
-              <li>Firmware (C/C++): PLL for 80&nbsp;MHz, GPIO/LEDs, SysTick delays, I²C (sensor), UART (PC), GPIO (stepper + button). Button on <strong>PH0</strong> starts acquisition; LEDs flash on start/finish; poll sensor every <strong>10&nbsp;ms</strong>.</li>
-              <li>Loop: read distance → store → rotate <strong>22.5°</strong> → UART transmit → flash PF4 LED; repeat for 16 samples.</li>
-            </ul>
-
-            <h4 className="mt-4 text-base font-semibold">(b) Visualisation</h4>
-            <ul className="mt-2 list-disc pl-5 space-y-1.5">
-              <li>Open3D converts XYZ to a <strong>line set</strong> (intra-set & inter-set links) + per-set <strong>bounding boxes</strong> for readability.</li>
-              <li>Environment: Python <strong>3.7</strong> (Open3D compat), prefer dedicated GPU; keep laptop on AC to avoid throttling.</li>
+              <li>Firmware: PLL 80&nbsp;MHz; I²C (sensor), UART (PC), GPIO (stepper+button), polling every <strong>10&nbsp;ms</strong>.</li>
+              <li>Loop: read distance → store → rotate <strong>22.5°</strong> → UART transmit → repeat for 16 samples.</li>
             </ul>
           </section>
 
@@ -145,24 +110,17 @@ const projects: Project[] = [
           <section>
             <h3 className="text-lg font-semibold">(3) Circuit Schematic</h3>
             <div className="mt-3 flex justify-center">
-              <figure
-                className="relative mx-auto max-w-[720px] w-full rounded-xl ring-1 ring-white/10 overflow-hidden bg-black/20 cursor-zoom-in"
-                onClick={() => openLightbox(schematic, 0)}
-                role="button"
-                aria-label="Open circuit schematic"
-              >
-                <Image
-                  src={schematic[0].src}
-                  alt={schematic[0].alt}
-                  width={1200}
-                  height={700}
-                  quality={100}
-                  className="object-contain w-full h-auto"
-                />
-                <figcaption className="px-3 py-2 text-xs text-white/70 text-center">
-                  Circuit schematic (MSP432E401Y, VL53L1X, 28BYJ-48, UART/I²C)
-                </figcaption>
-              </figure>
+              <div className="w-full max-w-[720px]">
+                <figure
+                  className="relative w-full h-40 sm:h-48 md:h-56 lg:h-60 overflow-hidden rounded-lg ring-1 ring-white/10 bg-black/20 cursor-zoom-in"
+                  onClick={() => openLightbox(schematic, 0)}
+                  role="button"
+                  aria-label={schematic[0].alt}
+                >
+                  <Image src={schematic[0].src} alt={schematic[0].alt} fill sizes="(max-width: 768px) 100vw, 50vw" quality={100} className="object-contain" />
+                </figure>
+                <div className="mt-2 px-3 text-xs text-white/70 text-center">{schematic[0].alt}</div>
+              </div>
             </div>
           </section>
 
@@ -170,213 +128,116 @@ const projects: Project[] = [
           <section>
             <h3 className="text-lg font-semibold">(4) Programming Logic Flowcharts</h3>
             <div className="mt-3 grid gap-3 md:grid-cols-2">
-              <figure
-                className="relative mx-auto max-w-[720px] w-full rounded-xl ring-1 ring-white/10 overflow-hidden bg-black/20 cursor-zoom-in"
-                onClick={() => openLightbox(flows, 0)}
-                role="button"
-                aria-label="Open programming logic flowchart 1"
-              >
-                <Image
-                  src={flows[0].src}
-                  alt={flows[0].alt}
-                  width={1200}
-                  height={700}
-                  quality={100}
-                  className="object-contain w-full h-auto"
-                />
-                <figcaption className="px-3 py-2 text-xs text-white/70 text-center">
-                  Flowchart — MCU init / main loop
-                </figcaption>
-              </figure>
-
-              <figure
-                className="relative mx-auto max-w-[720px] w-full rounded-xl ring-1 ring-white/10 overflow-hidden bg-black/20 cursor-zoom-in"
-                onClick={() => openLightbox(flows, 1)}
-                role="button"
-                aria-label="Open programming logic flowchart 2"
-              >
-                <Image
-                  src={flows[1].src}
-                  alt={flows[1].alt}
-                  width={1200}
-                  height={700}
-                  quality={100}
-                  className="object-contain w-full h-auto"
-                />
-                <figcaption className="px-3 py-2 text-xs text-white/70 text-center">
-                  Flowchart — Ranging, stepper advance, UART
-                </figcaption>
-              </figure>
+              {flows.map((img, idx) => (
+                <div key={img.src}>
+                  <figure
+                    className="relative w-full h-40 sm:h-48 md:h-56 lg:h-60 overflow-hidden rounded-lg ring-1 ring-white/10 bg-black/20 cursor-zoom-in"
+                    onClick={() => openLightbox(flows, idx)}
+                    role="button"
+                    aria-label={img.alt}
+                  >
+                    <Image src={img.src} alt={img.alt} fill sizes="(max-width: 768px) 100vw, 50vw" quality={100} className="object-contain" />
+                  </figure>
+                  <div className="mt-2 px-3 text-xs text-white/70 text-center">{img.alt}</div>
+                </div>
+              ))}
             </div>
           </section>
         </div>
       );
     },
   },
+
+  //* Quizler App Project *//
+  {
+    title: "Quizler App",
+    subtitle: "DeltaHacks project • React · HTML/CSS",
+    images: [{ src: "/Quizler.jpg", alt: "Screenshot of the Quizler educational web app" }],
+    body:
+      "Built a collaborative education app at DeltaHacks focused on ease of use. " +
+      "Designed a clean React UI that lets students join a shared room and quiz each other in real time.",
+  },
+
   {
     title: "Hardware Image Decompressor",
     subtitle: "Altera DE2 FPGA • Verilog · VGA",
-    images: [{ src: "/3DQ5_Main.jpg", alt: "FPGA board driving a VGA monitor" }],
+    images: [
+      { src: "/3DQ5_Main1.jpg", alt: "Hardware architecture for upsampling & colourspace conversion" }, // <-- added first
+      { src: "/3DQ5_Main2.jpg", alt: "RGB to YUV colourspace coversion & horizontal downsampling" },
+    ],
     body:
       "Implemented a YUV image decompressor in Verilog and displayed frames in real-time over VGA. " +
       "Designed memory buffers and a streaming datapath on the DE2 board, ensuring reliable timing with no visual artifacts.",
     details: (openLightbox) => {
       const detailImages: ProjectImage[] = [
-        { src: "/3DQ5_1.jpg", alt: "Flow & timing diagram" },
-        { src: "/3DQ5_2.jpg", alt: "Registers & signals table" },
+        { src: "/3DQ5_1.jpg", alt: "Figure 1 — Custom state table for flow/timing" },
+        { src: "/3DQ5_2.jpg", alt: "Figure 2 — Utilised registers & signals table" },
       ];
       return (
         <div className="mt-5 space-y-5 text-white/90">
-          {/* 1. Introduction */}
           <section>
             <h3 className="text-lg font-semibold">1. Introduction</h3>
             <ul className="mt-2 list-disc pl-5 space-y-1.5">
-              <li>
-                Implemented <strong>McMaster Image Compression Rev. 17</strong>{" "}
-                on an<strong> Altera DE2</strong> for <strong>320×240</strong>{" "}
-                images.
-              </li>
-              <li>
-                Pipeline: <strong>RGB→YUV</strong>, <strong>DCT</strong>,{" "}
-                <strong>quantization</strong>, <strong>SRAM</strong>,{" "}
-                <strong>UART</strong>, <strong>VGA</strong>, FSM-based control.
-              </li>
+              <li>Implemented <strong>McMaster Image Compression Rev. 17</strong> on an<strong> Altera DE2</strong> for <strong>320×240</strong> images.</li>
+              <li>Pipeline: <strong>RGB→YUV</strong>, <strong>DCT</strong>, <strong>quantization</strong>, <strong>SRAM</strong>, <strong>UART</strong>, <strong>VGA</strong>, FSM-based control.</li>
             </ul>
           </section>
 
-          {/* 2. Implementation Details */}
           <section>
             <h3 className="text-lg font-semibold">2. Implementation Details</h3>
 
-            {/* 2.1 */}
             <div className="mt-3">
-              <h4 className="text-base font-semibold">
-                2.1 Upsampling and Colour Space Conversion
-              </h4>
+              <h4 className="text-base font-semibold">2.1 Upsampling and Colour Space Conversion</h4>
 
               <div className="mt-3 grid gap-3 md:grid-cols-2">
-                {/* Detail image 1 */}
-                <figure
-                  className="relative rounded-xl ring-1 ring-white/10 overflow-hidden bg-black/20 cursor-zoom-in"
-                  onClick={() => openLightbox(detailImages, 0)}
-                  role="button"
-                  aria-label="Open Flow & timing diagram"
-                >
-                  <Image
-                    src={detailImages[0].src}
-                    alt={detailImages[0].alt}
-                    width={1200}
-                    height={700}
-                    sizes="100vw"
-                    quality={100}
-                    className="object-contain w-full h-auto"
-                  />
-                  <figcaption className="px-3 py-2 text-xs text-white/70 text-center">
-                    Figure 1 — Pipeline & timing overview
-                  </figcaption>
-                </figure>
-
-                {/* Detail image 2 */}
-                <figure
-                  className="relative rounded-xl ring-1 ring-white/10 overflow-hidden bg-black/20 cursor-zoom-in"
-                  onClick={() => openLightbox(detailImages, 1)}
-                  role="button"
-                  aria-label="Open Registers & signals table"
-                >
-                  <Image
-                    src={detailImages[1].src}
-                    alt={detailImages[1].alt}
-                    width={1200}
-                    height={600}
-                    sizes="100vw"
-                    quality={100}
-                    className="object-contain w-full h-auto"
-                  />
-                  <figcaption className="px-3 py-2 text-xs text-white/70 text-center">
-                    Figure 2 — Registers & signal descriptions used
-                  </figcaption>
-                </figure>
+                {detailImages.map((img, idx) => (
+                  <div key={img.src}>
+                    <figure
+                      className="relative w-full h-40 sm:h-48 md:h-56 lg:h-60 overflow-hidden rounded-lg ring-1 ring-white/10 bg-black/20 cursor-zoom-in"
+                      onClick={() => openLightbox(detailImages, idx)}
+                      role="button"
+                      aria-label={img.alt}
+                    >
+                      <Image src={img.src} alt={img.alt} fill sizes="(max-width: 768px) 100vw, 50vw" quality={100} className="object-contain" />
+                    </figure>
+                    <div className="mt-2 px-3 text-xs text-white/70 text-center">{img.alt}</div>
+                  </div>
+                ))}
               </div>
 
-              {/* TECHNICAL BULLETS */}
               <ul className="mt-3 list-disc pl-5 space-y-1.5">
-                <li>
-                  <strong>Timing:</strong> common-case loop ={" "}
-                  <strong>12 cycles</strong> (two 6-cycle halves), iterated per
-                  row across <strong>240 rows</strong>.
-                </li>
-                <li>
-                  <strong>Multiplier roles:</strong> M1/M2 hold{" "}
-                  <strong>U,V even/odd</strong> for interpolation; M3/M4 compute{" "}
-                  <strong>Y’, U’, V’ (even/odd)</strong> for colour conversion.
-                </li>
-                <li>
-                  <strong>Accumulators:</strong> Reven/Beven/Geven and
-                  Rodd/Godd/Bodd implement RGB↔YUV matrix multiply.
-                </li>
-                <li>
-                  <strong>Throughput:</strong> ~<strong>978 cycles/row</strong>,{" "}
-                  <strong>234,963 total cycles</strong>.
-                </li>
-                <li>
-                  <strong>Utilization:</strong> multipliers at ~
-                  <strong>85%</strong> (≫ 75% requirement).
-                </li>
+                <li><strong>Timing:</strong> common-case loop = <strong>12 cycles</strong> per half; <strong>240 rows</strong>.</li>
+                <li><strong>Multiplier roles:</strong> M1/M2 for U,V interpolation; M3/M4 for colour conversion.</li>
+                <li><strong>Accumulators:</strong> RGB↔YUV matrix multiply.</li>
+                <li><strong>Throughput:</strong> ~<strong>978 cycles/row</strong>, <strong>234,963 total</strong>.</li>
+                <li><strong>Utilization:</strong> ~<strong>85%</strong> multipliers.</li>
               </ul>
             </div>
 
-            {/* 2.2 */}
             <div className="mt-5">
-              <h4 className="text-base font-semibold">
-                2.2 Resource Usage and Critical Path
-              </h4>
+              <h4 className="text-base font-semibold">2.2 Resource Usage and Critical Path</h4>
               <ul className="mt-2 list-disc pl-5 space-y-1.5">
-                <li>
-                  <strong>Resources:</strong> <strong>2,435 / 114,480</strong>{" "}
-                  logic elements (~<strong>2%</strong>) → compact design,
-                  headroom for scaling, less congestion.
-                </li>
-                <li>
-                  <strong>Optimization:</strong> centralize
-                  constants/operands (avoid duplication); allow counters/control
-                  to drive repeated constant values directly.
-                </li>
-                <li>
-                  <strong>Critical path:</strong> <strong>14.787 ns</strong>{" "}
-                  from <code>mult_counter[3]</code> →{" "}
-                  <code>Beven_Accum[28]</code> due to combinational depth,
-                  register spacing/placement, RGB accumulation, and clocking
-                  (skew/setup); multiplier config contributes.
-                </li>
+                <li><strong>Resources:</strong> <strong>2,435 / 114,480</strong> LEs (~<strong>2%</strong>).</li>
+                <li><strong>Optimization:</strong> centralize constants/operands; drive repeats from control.</li>
+                <li><strong>Critical path:</strong> <strong>14.787 ns</strong> due to combinational depth and placement.</li>
               </ul>
             </div>
           </section>
 
-          {/* Conclusion */}
           <section>
             <h3 className="text-lg font-semibold">Conclusion</h3>
             <ul className="mt-2 list-disc pl-5 space-y-1.5">
-              <li>
-                4-week build combining <strong>FSM control</strong>,{" "}
-                <strong>VGA/SRAM/UART</strong>, and DSP blocks (
-                <strong>DCT/quant</strong>).
-              </li>
-              <li>
-                Emphasis on <strong>task division</strong>,{" "}
-                <strong>communication</strong>,{" "}
-                <strong>systematic debugging</strong>; small design choices
-                measurably affected performance.
-              </li>
-              <li>
-                Robust, scalable design; strong base for future features and
-                tuning.
-              </li>
+              <li>4-week build combining <strong>FSM</strong>, <strong>VGA/SRAM/UART</strong>, and DSP blocks.</li>
+              <li>Emphasis on <strong>task division</strong>, <strong>communication</strong>, <strong>systematic debugging</strong>.</li>
+              <li>Robust, scalable base for future features.</li>
             </ul>
           </section>
         </div>
       );
     },
   },
+
+  //* Pacemaker Project *//
   {
     title: "Custom Pacemaker Prototype",
     subtitle: "Embedded control • Simulink · Python (Tkinter)",
@@ -390,41 +251,79 @@ const projects: Project[] = [
       "Prototyped a pacemaker system that regulates patient heart rate via bi-directional telemetry. " +
       "Modeled control logic in Simulink and built a real-time Python GUI to monitor heart-rate data and adjust pacing modes.",
   },
+
+  //* Blink-Controlled Car Project *//
   {
     title: "Blink-Controlled Car",
     subtitle: "Signal processing • Arduino · Python",
-    images: [{ src: "/Blink.jpg", alt: "Small RC car controlled by blink detection" }],
+    images: [{ src: "/Blink.jpg", alt: "Hardware setup for blink-controlled car" }],
     body:
       "Engineered a small vehicle that responds to users’ blink gestures. " +
       "Refined EEG signal processing to extract blink patterns and translated them into motor commands for responsive navigation.",
   },
-  {
-    title: "Quizler App",
-    subtitle: "DeltaHacks project • React · HTML/CSS",
-    images: [{ src: "/Quizler.jpg", alt: "Screenshot of the Quizler educational web app" }],
-    body:
-      "Built a collaborative education app at DeltaHacks focused on ease of use. " +
-      "Designed a clean React UI that lets students join a shared room and quiz each other in real time.",
-  },
 ];
 
-export default function ProjectsPage() {
-  const [lightbox, setLightbox] = React.useState<{
-    open: boolean;
-    images: ProjectImage[];
-    index: number;
-  }>({ open: false, images: [], index: 0 });
+function Collapsible({ open, children }: { open: boolean; children: React.ReactNode }) {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const [height, setHeight] = React.useState<number>(0);
 
-  const [expanded, setExpanded] = React.useState<string | null>(null);
+  React.useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const measure = () => setHeight(open ? el.scrollHeight : 0);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [open]);
+
+  return (
+    <div
+      className="overflow-hidden transition-[height,opacity] duration-300 ease-out [overflow-anchor:none]"
+      style={{ height, opacity: open ? 1 : 0 }}
+      aria-hidden={!open}
+    >
+      <div ref={ref}>{children}</div>
+    </div>
+  );
+}
+
+export default function ProjectsPage() {
+  // Lightbox state
+  const [lightbox, setLightbox] = React.useState<{ open: boolean; images: ProjectImage[]; index: number }>({
+    open: false,
+    images: [],
+    index: 0,
+  });
+
+  // Multi-expand
+  const [expandedSet, setExpandedSet] = React.useState<Set<string>>(new Set());
 
   const openLightbox = (images: ProjectImage[], index: number) =>
     setLightbox({ open: true, images, index });
 
   const closeLightbox = () => setLightbox((s) => ({ ...s, open: false }));
-  const prevImage = () =>
-    setLightbox((s) => ({ ...s, index: (s.index - 1 + s.images.length) % s.images.length }));
-  const nextImage = () =>
-    setLightbox((s) => ({ ...s, index: (s.index + 1) % s.images.length }));
+  const prevImage = () => setLightbox((s) => ({ ...s, index: (s.index - 1 + s.images.length) % s.images.length }));
+  const nextImage = () => setLightbox((s) => ({ ...s, index: (s.index + 1) % s.images.length }));
+
+  // Prevent jump
+  const toggleExpanded = (title: string, articleId: string) => {
+    const el = document.getElementById(articleId);
+    const startTop = el ? el.getBoundingClientRect().top : 0;
+
+    setExpandedSet((prev) => {
+      const next = new Set(prev);
+      if (next.has(title)) next.delete(title);
+      else next.add(title);
+      return next;
+    });
+
+    requestAnimationFrame(() => {
+      const endTop = el ? el.getBoundingClientRect().top : 0;
+      const delta = endTop - startTop;
+      if (delta) window.scrollBy({ top: delta, left: 0, behavior: "instant" as ScrollBehavior });
+    });
+  };
 
   React.useEffect(() => {
     if (!lightbox.open) return;
@@ -437,6 +336,9 @@ export default function ProjectsPage() {
     return () => window.removeEventListener("keydown", onKey);
   }, [lightbox.open]);
 
+  // Shrink tiles
+  const COLUMN_MIN_H = "md:min-h-[320px]";
+
   return (
     <section className="py-2 pb-10">
       <h1 className="text-3xl sm:text-4xl font-extrabold">Projects</h1>
@@ -446,44 +348,33 @@ export default function ProjectsPage() {
           const imageFirstOnDesktop = i % 2 === 1;
           const imgCount = p.images.length;
           const gridCols = imgCount === 1 ? "grid-cols-1" : "grid-cols-2";
-          const isExpanded = expanded === p.title;
+          const isExpanded = expandedSet.has(p.title);
+          const articleId = `proj-${i}`;
 
           return (
-            <article
-              key={p.title}
-              className="rounded-xl ring-1 ring-white/10 bg-white/[0.03] overflow-hidden"
-            >
+            <article id={articleId} key={p.title} className="rounded-xl ring-1 ring-white/10 bg-white/[0.03] overflow-hidden">
               <div className="grid grid-cols-1 md:grid-cols-2">
                 {/* Media */}
-                <div
-                  className={[
-                    i === 0 ? "p-3 md:p-4 md:min-h-[420px]" : "p-3 md:p-4 md:min-h-[340px]",
-                    imageFirstOnDesktop ? "order-none md:order-1" : "",
-                  ].join(" ")}
-                >
-                  <div className={`grid ${gridCols} gap-3 h-full`}>
+                <div className={["p-3 md:p-3", COLUMN_MIN_H, imageFirstOnDesktop ? "order-none md:order-1" : ""].join(" ")}>
+                  <div className={`grid ${gridCols} gap-3`}>
                     {p.images.map((img, idx) => (
-                      <figure
-                        key={img.src + idx}
-                        className="relative w-full h-40 sm:h-48 md:h-60 lg:h-64 overflow-hidden rounded-lg ring-1 ring-white/10 bg-black/20 cursor-zoom-in"
-                        onClick={() => openLightbox(p.images, idx)}
-                      >
-                        <Image
-                          src={img.src}
-                          alt={img.alt}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          className="object-contain"
-                          priority={i === 0 && idx === 0}
-                        />
-                      </figure>
+                      <div key={img.src + idx}>
+                        <figure
+                          className="relative w-full h-40 sm:h-48 md:h-56 lg:h-60 overflow-hidden rounded-lg ring-1 ring-white/10 bg-black/20 cursor-zoom-in"
+                          onClick={() => openLightbox(p.images, idx)}
+                        >
+                          <Image src={img.src} alt={img.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain" priority={i === 0 && idx === 0} />
+                        </figure>
+                        <div className="mt-2 px-3 text-xs text-white/70 text-center">{img.alt}</div>
+                      </div>
                     ))}
                   </div>
                 </div>
 
                 <div
                   className={[
-                    "p-5 sm:p-6 md:p-7 flex h-full flex-col justify-between",
+                    "p-5 sm:p-6 md:p-6 flex flex-col gap-3",
+                    COLUMN_MIN_H,
                     imageFirstOnDesktop ? "order-none md:order-0" : "",
                   ].join(" ")}
                 >
@@ -493,7 +384,7 @@ export default function ProjectsPage() {
                     <p className="mt-3 text-white/90 leading-relaxed">{p.body}</p>
 
                     {p.links?.length ? (
-                      <div className="mt-4 flex flex-wrap gap-2">
+                      <div className="mt-3 flex flex-wrap gap-2">
                         {p.links.map((l) => (
                           <a
                             key={l.href}
@@ -509,12 +400,11 @@ export default function ProjectsPage() {
                     ) : null}
                   </div>
 
-                  {/* "View more" */}
                   {p.details ? (
-                    <div className="pt-5">
+                    <div className="mt-2">
                       <button
                         aria-expanded={isExpanded}
-                        onClick={() => setExpanded(isExpanded ? null : p.title)}
+                        onClick={() => toggleExpanded(p.title, articleId)}
                         className="w-full sm:w-auto rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium hover:bg-white/10 transition"
                       >
                         {isExpanded ? "Hide details" : "View more"}
@@ -526,30 +416,25 @@ export default function ProjectsPage() {
 
               {/* Collapsible details */}
               {p.details ? (
-                <div
-                  className={[
-                    "transition-[max-height,opacity] duration-300 ease-out overflow-hidden",
-                    isExpanded ? "max-h-[5000px] opacity-100" : "max-h-0 opacity-0",
-                  ].join(" ")}
-                >
-                  <div className="border-t border-white/10 p-5 sm:p-6 md:p-7">
-                    {p.details(openLightbox)}
-                  </div>
-                </div>
+                <Collapsible open={isExpanded}>
+                  <div className="border-t border-white/10 p-5 sm:p-6 md:p-6">{p.details(openLightbox)}</div>
+                </Collapsible>
               ) : null}
             </article>
           );
         })}
       </div>
 
+      {/* Lightbox */}
       {lightbox.open && (
         <div
           className="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6"
           onClick={closeLightbox}
         >
+          {/* Close */}
           <button
             aria-label="Close"
-            className="z-[70] absolute top-4 right-4 sm:top-6 sm:right-6 rounded-full bg-white/10 hover:bg-white/20 ring-1 ring-white/25 px-3 py-1.5 text-sm"
+            className="z-[70] absolute top-4 right-4 sm:top-6 sm:right-6 rounded-full bg-black/50 text-white px-3 py-1.5 text-sm font-semibold shadow-lg hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/60"
             onClick={(e) => {
               e.stopPropagation();
               closeLightbox();
@@ -558,9 +443,10 @@ export default function ProjectsPage() {
             Close
           </button>
 
+          {/* Previous */}
           <button
             aria-label="Previous image"
-            className="z-[70] absolute left-2 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 hover:bg-white/20 ring-1 ring-white/25 px-3 py-2"
+            className="z-[70] absolute left-2 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 rounded-full bg-black/50 text-white px-4 py-3 text-lg font-semibold shadow-lg hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/60"
             onClick={(e) => {
               e.stopPropagation();
               prevImage();
@@ -569,9 +455,10 @@ export default function ProjectsPage() {
             ‹
           </button>
 
+          {/* Next */}
           <button
             aria-label="Next image"
-            className="z-[70] absolute right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 rounded-full bg-white/10 hover:bg-white/20 ring-1 ring-white/25 px-3 py-2"
+            className="z-[70] absolute right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 rounded-full bg-black/50 text-white px-4 py-3 text-lg font-semibold shadow-lg hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/60"
             onClick={(e) => {
               e.stopPropagation();
               nextImage();
@@ -581,7 +468,7 @@ export default function ProjectsPage() {
           </button>
 
           <div
-            className="relative z-[65] max-w-[95vw] max-h-[90vh] w-full h-full flex items-center justify-center"
+            className="relative z-[65] max-w-[95vw] max-h-[90vh] w-full h-full flex flex-col items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative w-full h-full">
@@ -595,6 +482,7 @@ export default function ProjectsPage() {
                 priority
               />
             </div>
+            <p className="mt-3 text-center text-white/80 text-sm">{lightbox.images[lightbox.index].alt}</p>
           </div>
         </div>
       )}
