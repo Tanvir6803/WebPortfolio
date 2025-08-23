@@ -130,7 +130,7 @@ export default function Home() {
               with React, Next.js, Tailwind CSS, TypeScript, Node.js, and PostgreSQL, and programming
               in Python, Java, JavaScript, C#, C/C++, and SQL. I also have experience with
               microcontrollers, PLCs, Verilog HDL, and hardware integration to deliver embedded
-              solutions. Please view my skills below as well as my work/club experience and projects
+              solutions. Please view my skills below, as well as my work/club experience and projects
               to see more!
             </p>
           </div>
