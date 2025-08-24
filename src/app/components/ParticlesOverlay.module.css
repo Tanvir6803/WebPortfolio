@@ -1,0 +1,21 @@
+.container {
+  position: absolute;       /* Anchored */
+  inset: 0;                 
+  z-index: 10;              
+  pointer-events: none;
+  overflow: hidden;         
+}
+
+.particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  opacity: 0;
+  will-change: transform, opacity, left, top;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.45);
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .container { display: none; }
+}

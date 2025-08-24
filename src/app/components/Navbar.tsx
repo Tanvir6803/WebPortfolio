@@ -9,8 +9,10 @@ const links = [
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 bg-neutral-900 text-white border-b border-white/10">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+    // Lock the header height so there’s zero CLS on first paint
+    <header className="fixed top-0 left-0 w-full z-50 bg-neutral-900 text-white border-b border-white/10 h-14">
+      {/* Match the inner container height exactly and center contents */}
+      <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
         <Link href="/" className="font-semibold tracking-tight">
           Tanvir Singh
         </Link>
