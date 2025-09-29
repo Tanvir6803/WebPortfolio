@@ -70,7 +70,7 @@ export default function Home() {
                 </h1>
                 <div className="relative h-20 w-20 sm:h-24 sm:w-24 md:hidden rounded-full overflow-hidden ring-1 ring-white/15">
                   <Image
-                    src="/TanvirPicture.jpg"
+                    src="/TanvirPicture2.jpg"
                     alt="Tanvir Singh"
                     fill
                     priority
