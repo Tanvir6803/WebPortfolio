@@ -21,12 +21,12 @@
 
 html {
   overflow-y: scroll;
-  overflow-x: hidden;   /* <<< prevent any accidental horizontal scrollbar */
+  overflow-x: hidden;  
 }
 
 body {
   background: linear-gradient(to bottom, #0a1224, #16213b);
   color: white;
   font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;   /* <<< belt and suspenders */
+  overflow-x: hidden;  
 }

@@ -54,7 +54,7 @@ export default function ExperiencePage() {
               Software Quality Engineering Intern{" "}
               <span className="italic text-blue-400">— Veoneer Canada Safety Systems</span>
             </h2>
-            <span className="text-sm text-white/70">May 2024 – Aug 2025</span>
+            <span className="text-sm text-white/70">May 2024 – August 2025</span>
           </header>
 
           <div className="mt-1 text-sm text-white/70">Markham, Ontario, Canada</div>
@@ -82,7 +82,7 @@ export default function ExperiencePage() {
               Software Engineer Intern{" "}
               <span className="italic text-blue-400">— Alphavima Technologies</span>
             </h2>
-            <span className="text-sm text-white/70">May 2023 – Aug 2023</span>
+            <span className="text-sm text-white/70">May 2023 – August 2023</span>
           </header>
 
           <div className="mt-1 text-sm text-white/70">Mississauga, Ontario, Canada</div>
@@ -103,10 +103,10 @@ export default function ExperiencePage() {
         <article>
           <header className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
             <h2 className="text-xl sm:text-2xl font-semibold">
-              Software Sub-team Member{" "}
+              Software Application Developer{" "}
               <span className="italic text-blue-400">— McMaster Aerial Robotics & Drones Team</span>
             </h2>
-            <span className="text-sm text-white/70">Jan 2025 – Present</span>
+            <span className="text-sm text-white/70">January 2025 – Present</span>
           </header>
 
           <div className="mt-1 text-sm text-white/70">Hamilton, Ontario, Canada</div>
