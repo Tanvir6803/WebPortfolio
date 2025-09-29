@@ -170,9 +170,9 @@ export default function Home() {
 
           {/* Desktop larger image */}
           <div className="hidden md:flex justify-center md:justify-end self-start">
-            <div className="relative h-40 w-40 sm:h-52 sm:w-52 md:h-72 md:w-72 rounded-2xl overflow-hidden ring-1 ring-white/15">
+            <div className="relative h-40 w-40 sm:h-52 sm:w-52 md:h-100 md:w-100 rounded-2xl overflow-hidden ring-1 ring-white/15">
               <Image
-                src="/TanvirPicture.jpg"
+                src="/TanvirPicture2.jpg"
                 alt="Tanvir Singh"
                 fill
                 priority
