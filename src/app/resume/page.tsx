@@ -60,7 +60,7 @@ export default function ResumePage() {
         <div className="rounded-xl overflow-hidden ring-1 ring-white/10 bg-black/20">
           <Image
             src="/resume_preview.jpg"
-            alt="Resume preview"
+            alt="Tanvir's Resume preview"
             width={1200}
             height={1700}
             className="w-full h-auto"
