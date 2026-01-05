@@ -46,7 +46,12 @@ export default function ExperiencePage() {
     <section className="py-2 pb-10">
       <h1 className="text-3xl sm:text-4xl font-extrabold">Experience</h1>
 
-      <div className="mt-6 space-y-10">
+      <div className="mt-6 space-y-4">
+        {/* Work/Co-op Experience */}
+        <h2 className="text-lg sm:text-xl font-semibold text-sky-200 underline underline-offset-4 decoration-white/30 decoration-1">
+          Work/Co-op Experience:
+        </h2>
+
         {/* Veoneer */}
         <article>
           <header className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
@@ -99,6 +104,11 @@ export default function ExperiencePage() {
           </ul>
         </article>
 
+        {/* Extracurricular Experience */}
+        <h2 className="mt-10 text-lg sm:text-xl font-semibold text-sky-200 underline underline-offset-4 decoration-white/30 decoration-1">
+          Extracurricular Experience & Campus Involvement:
+        </h2>
+
         {/* Drone Club */}
         <article>
           <header className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
@@ -106,7 +116,7 @@ export default function ExperiencePage() {
               Software Application Developer{" "}
               <span className="italic text-blue-400">— McMaster Aerial Robotics & Drones Team</span>
             </h2>
-            <span className="text-sm text-white/70">January 2025 – Present</span>
+            <span className="text-sm text-white/70">January 2025 – January 2026</span>
           </header>
 
           <div className="mt-1 text-sm text-white/70">Hamilton, Ontario, Canada</div>
@@ -201,46 +211,46 @@ export default function ExperiencePage() {
           role="dialog"
         >
           {/* Close */}
-        <button
-          aria-label="Close"
-          className="z-[70] absolute top-4 right-4 sm:top-6 sm:right-6 
+          <button
+            aria-label="Close"
+            className="z-[70] absolute top-4 right-4 sm:top-6 sm:right-6 
                     rounded-full bg-black/50 text-white px-3 py-1.5 text-sm font-semibold 
                     shadow-lg hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/60"
-          onClick={(e) => {
-            e.stopPropagation();
-            close();
-          }}
-        >
-          Close
-        </button>
+            onClick={(e) => {
+              e.stopPropagation();
+              close();
+            }}
+          >
+            Close
+          </button>
 
-        {/* Previous */}
-        <button
-          aria-label="Previous image"
-          className="z-[70] absolute left-2 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 
+          {/* Previous */}
+          <button
+            aria-label="Previous image"
+            className="z-[70] absolute left-2 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 
                     rounded-full bg-black/50 text-white px-4 py-3 text-lg font-semibold 
                     shadow-lg hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/60"
-          onClick={(e) => {
-            e.stopPropagation();
-            prev();
-          }}
-        >
-          ‹
-        </button>
+            onClick={(e) => {
+              e.stopPropagation();
+              prev();
+            }}
+          >
+            ‹
+          </button>
 
-        {/* Next */}
-        <button
-          aria-label="Next image"
-          className="z-[70] absolute right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 
+          {/* Next */}
+          <button
+            aria-label="Next image"
+            className="z-[70] absolute right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 
                     rounded-full bg-black/50 text-white px-4 py-3 text-lg font-semibold 
                     shadow-lg hover:bg-black/70 focus:outline-none focus:ring-2 focus:ring-white/60"
-          onClick={(e) => {
-            e.stopPropagation();
-            next();
-          }}
-        >
-          ›
-        </button>
+            onClick={(e) => {
+              e.stopPropagation();
+              next();
+            }}
+          >
+            ›
+          </button>
 
           <div
             className="relative z-[65] max-w-[95vw] max-h-[90vh] w-full h-full flex flex-col items-center justify-center"
